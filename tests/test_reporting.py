@@ -47,7 +47,7 @@ class FirstRun(unittest.TestCase):
     def test_planted_flags(self):
         c = self.checks
         self.assertIn("Carousel-Test", c["Ad campaigns not in the asset map"][2])
-        self.assertIn("ready-video-cta-v2", c["Forms not in the asset map"][2])
+        self.assertIn("records-video-cta-v2", c["Forms not in the asset map"][2])
         self.assertIn("6 repeat", c["Duplicate leads removed"][2])
         self.assertIn("14 leads", c["Leads with no UTMs"][2])
         self.assertIn("2026-06-29", c["Ad rows outside the period"][2])

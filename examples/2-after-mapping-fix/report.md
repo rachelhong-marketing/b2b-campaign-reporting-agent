@@ -24,12 +24,12 @@
 
 | Asset | Spend | Impressions | Clicks | Leads | MQLs | SALs | SQLs | CTR | CPC | Cost per lead | Cost per MQL | Lead to MQL |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Data Readiness Assessment | $63,019 | 1,725,372 | 18,642 | 589 | 183 | 65 | 23 | 1.08% | $3.38 | $107 | $344 | 31% |
-| Ready-or-Not Video | $40,802 | 3,529,525 | 8,219 | 190 | 50 | 20 | 5 | 0.23% | $4.96 | $215 | $816 | 26% |
-| [UNMAPPED] 2026-Q3-DR-LinkedIn-Carousel-Test | $5,084 | 185,280 | 1,025 | 0 | 0 | 0 | 0 | 0.55% | $4.96 | - | - | - |
+| Customer Data Cleanup Playbook | $63,019 | 1,725,372 | 18,642 | 589 | 183 | 65 | 23 | 1.08% | $3.38 | $107 | $344 | 31% |
+| One Customer Video | $40,802 | 3,529,525 | 8,219 | 190 | 50 | 20 | 5 | 0.23% | $4.96 | $215 | $816 | 26% |
+| [UNMAPPED] 2026-Q3-CCD-LinkedIn-Carousel-Test | $5,084 | 185,280 | 1,025 | 0 | 0 | 0 | 0 | 0.55% | $4.96 | - | - | - |
 | Demo Request | $0 | 0 | 0 | 41 | 12 | 5 | 1 | - | - | - | - | 29% |
-| 5 Signs Guide | $0 | 0 | 0 | 38 | 15 | 4 | 1 | - | - | - | - | 39% |
-| [UNMAPPED] ready-video-cta-v2 | $0 | 0 | 0 | 4 | 1 | 1 | 1 | - | - | - | - | 25% |
+| Bank Webinar | $0 | 0 | 0 | 38 | 15 | 4 | 1 | - | - | - | - | 39% |
+| [UNMAPPED] records-video-cta-v2 | $0 | 0 | 0 | 4 | 1 | 1 | 1 | - | - | - | - | 25% |
 | **Total** | **$108,904** | **5,440,177** | **27,886** | **862** | **261** | **95** | **31** | **0.51%** | **$3.91** | **$126** | **$417** | **30%** |
 
 ## By month
@@ -47,9 +47,9 @@
 |---|---|---|
 | PASS | Views add up to the source table | Channel, asset and month views match the source table for every metric. |
 | PASS | Spend matches the platform files | $108,903.79 in the source table = $108,903.79 in the files (in period). |
-| FLAG | Ad campaigns not in the asset map | LinkedIn '2026-Q3-DR-LinkedIn-Carousel-Test' ($5,084). Add them to mapping/asset-map.csv. |
+| FLAG | Ad campaigns not in the asset map | LinkedIn '2026-Q3-CCD-LinkedIn-Carousel-Test' ($5,084). Add them to mapping/asset-map.csv. |
 | PASS | Lead sources not in the channel map | All UTM source and medium pairs mapped. |
-| FLAG | Forms not in the asset map | 'ready-video-cta-v2' (4 leads). |
+| FLAG | Forms not in the asset map | 'records-video-cta-v2' (4 leads). |
 | PASS | Channels with spend but no leads | Every channel with spend has leads. |
 | FLAG | Duplicate leads removed | 6 repeat record(s) for the same email were counted once. |
 | FLAG | Leads with no UTMs | 14 leads (2%) have no UTM source; shown as 'Unattributed (no UTM)'. |
