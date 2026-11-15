@@ -1,0 +1,99 @@
+# B2B Campaign Reporting Agent
+
+> **B2B Campaign Lifecycle Toolkit**, step 4 of 5
+>
+> [1. Plan](https://github.com/rachelhong-marketing/b2b-campaign-assistant) → [2. Set up](https://github.com/rachelhong-marketing/b2b-paid-media-planner) → [3. Test](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) → **4. Report** → [5. Prove](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool)
+
+An AI agent that turns ad platform and CRM exports into a campaign report you can defend in front of a CMO. It combines Google Ads, LinkedIn, Meta and display exports with CRM leads into one source table, builds views by channel, asset and month, runs QA checks **before** anyone reads the results, and then drafts insights for leadership.
+
+It runs as a Claude Code skill, with Python doing every sum, join and check. There's also a Microsoft Copilot version.
+
+All data here is made up.
+
+## Why QA comes first
+
+On the sample data, the first run shows Meta with **$8,585 in spend and zero leads**. A quick read says "cut Meta." The QA check says something else: 126 leads came in tagged `facebook / paid-social`, which isn't in the channel map. Once that's mapped, Meta has the **lowest cost per MQL of any channel ($277)**.
+
+| | First run | After the mapping fix |
+|---|---|---|
+| Meta leads | 0 | 126 |
+| Meta cost per MQL | none | $277 (lowest of any channel) |
+| Paid channels' cost per MQL | $542 | $469 |
+
+That's the problem this agent solves. Most reporting mistakes are tracking and mapping problems that look like performance problems. The agent finds them first, asks before fixing a mapping, rebuilds, and only then writes insights.
+
+## What it does
+
+1. **Checks the files:** which exports are there, row counts and date ranges.
+2. **Builds one source table:** one row per month × channel × asset, with spend, impressions, clicks, leads, MQLs, SALs and SQLs. Every view is summed from it; nothing is typed by hand.
+3. **Runs QA:**
+
+| Check | What it catches on the sample data |
+|---|---|
+| Views add up | Channel, asset and month totals equal the source table |
+| Spend matches the platform files | $108,903.79 in both |
+| Unmapped ad campaigns | A LinkedIn carousel test ($5,084) not in the asset map |
+| Unmapped lead sources | 126 leads tagged `facebook` instead of `meta` |
+| Unmapped forms | `ready-video-cta-v2` (4 leads) |
+| Spend but no leads | Meta, before the mapping fix |
+| Duplicate leads | 6 repeat form fills counted once |
+| No UTMs | 14 leads (2%) |
+| Skipped stages | A lead with an SQL date but no MQL date (counted as an MQL, since stages are cumulative) |
+| Stages after the period | 82 stage changes after September 30, not counted |
+| Rows outside the period | A weekly Google row starting June 29 |
+| Control totals (optional) | Any channel where the report and a trusted CRM total differ |
+
+4. **Drafts insights** in a fixed shape for leadership: headline, what's working, what we're fixing (with owners), what we'll change next. See [the example](examples/3-leadership-insights.md).
+
+## Use it with Claude Code
+
+Download the repo, open the folder in Claude Code, and ask:
+
+- "Build the Q3 2026 report from sample-data/2026-q3."
+- "Why does Meta show no leads?"
+- "Write the Q3 summary for my manager and the CMO."
+
+The skill is in [`.claude/skills/reporting-agent/SKILL.md`](.claude/skills/reporting-agent/SKILL.md). For your own data, follow [docs/exports.md](docs/exports.md) and update the maps in [`mapping/`](mapping/).
+
+## Use it in Microsoft Copilot
+
+[`copilot/`](copilot/) has the same agent as Copilot instructions and a setup guide. Copilot does the math itself, so the guide explains what to check in its QA tab.
+
+## Command line
+
+Python 3 only, nothing to install.
+
+```bash
+python3 -m reporting files sample-data/2026-q3
+python3 -m reporting build sample-data/2026-q3 --start 2026-07-01 --end 2026-09-30 --out my-report
+python3 -m reporting build sample-data/2026-q3 --start 2026-07-01 --end 2026-09-30 --control my-control-totals.csv
+python3 -m unittest discover -s tests
+```
+
+Output: `report.md` plus `source_table.csv`, `by_channel.csv`, `by_asset.csv` and `by_month.csv`. Both example runs are in [`examples/`](examples/): [the first run](examples/1-first-run/report.md) and [after the mapping fix](examples/2-after-mapping-fix/report.md).
+
+## How the numbers are counted
+
+- Leads: one per person (by email), by created date in the period.
+- Stages are cumulative: an SQL also counts as an MQL and a SAL. A stage counts if it was reached by the period end.
+- Channel comes from UTM source and medium; asset from the ad campaign name or the form. Anything not mapped shows as [UNMAPPED], so it's visible instead of dropped.
+- The headline cost per MQL uses paid channels only.
+- The report stops at SQLs. For pipeline, use step 5, the attribution tool.
+
+## The B2B Campaign Lifecycle Toolkit
+
+Five tools, one per step of a B2B campaign, from the brief to proving pipeline. Each works on its own; together they cover the whole cycle. All sample data is made up.
+
+| Step | Tool | What it does |
+|---|---|---|
+| 1. Plan | [B2B Campaign Assistant](https://github.com/rachelhong-marketing/b2b-campaign-assistant) | Turn a master brief into channel briefs; review copy and creative before launch. |
+| 2. Set up | [B2B Paid Media Planner](https://github.com/rachelhong-marketing/b2b-paid-media-planner) | Plan channels and retargeting, then build and check tracking links before launch. |
+| 3. Test | [B2B Campaign Test Planner](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) | Size tests on leads and MQLs, not clicks, and read the results. |
+| 4. Report | **B2B Campaign Reporting Agent** (this repo) | Combine ad platform and CRM data, check the totals and draft insights. |
+| 5. Prove | [B2B Pipeline Attribution Tool](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool) | Check the CRM data can be trusted, then show sourced and influenced pipeline. |
+
+## About the author
+
+**Rachel Hong** has worked in B2B demand generation and marketing analytics for more than ten years, at marketing and advertising technology companies. She builds campaigns, reporting and the AI workflows that help marketing teams plan and measure them.
+
+[LinkedIn](https://www.linkedin.com/in/rachelhongatbaruch/)

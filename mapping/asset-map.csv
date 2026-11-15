@@ -1,0 +1,10 @@
+type,value,channel,standard_asset
+ad_campaign,2026-Q3-DR-Search-Assessment,Paid Search,Data Readiness Assessment
+ad_campaign,2026-Q3-DR-LinkedIn-Video,LinkedIn,Ready-or-Not Video
+ad_campaign,2026-Q3-DR-LinkedIn-Assessment,LinkedIn,Data Readiness Assessment
+ad_campaign,2026-Q3-DR-Meta-Retargeting,Meta,Data Readiness Assessment
+ad_campaign,2026-Q3-DR-Display-ABM,Display,Ready-or-Not Video
+lead_form,data-readiness-assessment,,Data Readiness Assessment
+lead_form,ready-video-cta,,Ready-or-Not Video
+lead_form,5-signs-guide,,5 Signs Guide
+lead_form,demo-request,,Demo Request
