@@ -4,7 +4,9 @@
 >
 > [1. Plan](https://github.com/rachelhong-marketing/b2b-campaign-assistant) → [2. Set up](https://github.com/rachelhong-marketing/b2b-paid-media-planner) → [3. Test](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) → **4. Report** → [5. Prove](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool)
 
-An AI agent that turns ad platform and CRM exports into a campaign report you can defend in front of a CMO. It combines Google Ads, LinkedIn, Meta and display exports with CRM leads into one source table, builds views by channel, asset and month, runs QA checks **before** anyone reads the results, and then drafts insights for leadership.
+B2B campaign data is scattered. Spend, impressions and clicks sit in each ad platform (Google Ads, LinkedIn, Meta, display). Leads, and how far they move from lead to MQL (marketing qualified lead), SAL (sales accepted lead) and SQL (sales qualified lead), sit in the CRM. Putting it together by hand is slow, and the gaps between systems are easy to miss.
+
+This AI agent consolidates every source into one file, with one row per month, channel and asset that shows spend, clicks and each funnel stage side by side. It adds up results across channels, checks every channel and funnel stage for data gaps and tracking problems **before** anyone reads the numbers, and then drafts insights for leadership.
 
 It runs as a Claude Code skill, with Python doing every sum, join and check. There's also a Microsoft Copilot version.
 
@@ -89,7 +91,7 @@ Five tools, one per step of a B2B campaign, from the brief to proving pipeline. 
 | 1. Plan | [B2B Campaign Assistant](https://github.com/rachelhong-marketing/b2b-campaign-assistant) | Turn a master brief into channel briefs; review copy and creative before launch. |
 | 2. Set up | [B2B Paid Media Planner](https://github.com/rachelhong-marketing/b2b-paid-media-planner) | Plan channels and retargeting, then build and check tracking links before launch. |
 | 3. Test | [B2B Campaign Test Planner](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) | Size tests on leads and MQLs, not clicks, and read the results. |
-| 4. Report | **B2B Campaign Reporting Agent** (this repo) | Combine ad platform and CRM data, check the totals and draft insights. |
+| 4. Report | **B2B Campaign Reporting Agent** (this repo) | Consolidate ad platform and CRM data into one file, check every channel and funnel stage for gaps, and draft insights. |
 | 5. Prove | [B2B Pipeline Attribution Tool](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool) | Check the CRM data can be trusted, then show sourced and influenced pipeline. |
 
 ## About the author

@@ -15,7 +15,7 @@ For teams that work in Microsoft 365. About an hour for the basic version.
 
 1. **Make a SharePoint folder** with: the channel map, the asset map, your lead stage definitions and `exports.md`.
 2. In Copilot, choose **Create agent** → **Configure**.
-3. **Name:** Reporting Agent. **Description:** Builds checked campaign performance reports from ad platform and CRM exports and drafts leadership insights.
+3. **Name:** Reporting Agent. **Description:** Consolidates ad platform and CRM data into one checked report across channels and funnel stages (lead, MQL, SAL, SQL), then drafts leadership insights.
 4. **Instructions:** paste from `agent-instructions.md` and fill in the brackets.
 5. **Knowledge:** add the SharePoint folder. Turn on **Only use specified sources**.
 6. **Conversation starters:** copy the four from `agent-instructions.md`.
