@@ -1,8 +1,8 @@
 # B2B Campaign Reporting Agent
 
-> **B2B Campaign Lifecycle Toolkit**, step 4 of 5
+> **B2B Campaign Lifecycle Toolkit**, step 6 of 7
 >
-> [1. Plan](https://github.com/rachelhong-marketing/b2b-campaign-assistant) → [2. Set up](https://github.com/rachelhong-marketing/b2b-paid-media-planner) → [3. Test](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) → **4. Report** → [5. Prove](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool)
+> [1. Position](https://github.com/rachelhong-marketing/b2b-product-marketing-agent) → [2. Plan](https://github.com/rachelhong-marketing/b2b-campaign-assistant) → [3. Content](https://github.com/rachelhong-marketing/b2b-content-strategy-assistant) → [4. Set up](https://github.com/rachelhong-marketing/b2b-paid-media-planner) → [5. Test](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) → **6. Report** → [7. Prove](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool)
 
 B2B campaign data is scattered. Spend, impressions and clicks sit in each ad platform (Google Ads, LinkedIn, Meta, display). Leads, and how far they move from lead to MQL (marketing qualified lead), SAL (sales accepted lead) and SQL (sales qualified lead), sit in the CRM. Putting it together by hand is slow, and the gaps between systems are easy to miss.
 
@@ -80,19 +80,21 @@ Output: `report.md` plus `source_table.csv`, `by_channel.csv`, `by_asset.csv` an
 - Stages are cumulative: an SQL also counts as an MQL and a SAL. A stage counts if it was reached by the period end.
 - Channel comes from UTM source and medium; asset from the ad campaign name or the form. Anything not mapped shows as [UNMAPPED], so it's visible instead of dropped.
 - The headline cost per MQL uses paid channels only.
-- The report stops at SQLs. For pipeline, use step 5, the attribution tool.
+- The report stops at SQLs. For pipeline, use step 7, the attribution tool.
 
 ## The B2B Campaign Lifecycle Toolkit
 
-Five tools, one per step of a B2B campaign, from the brief to proving pipeline. Each works on its own; together they cover the whole cycle. All sample data is made up.
+Seven tools, one per step of a B2B campaign, from positioning to proving pipeline. Each works on its own; together they cover the whole cycle. All sample data is made up.
 
 | Step | Tool | What it does |
 |---|---|---|
-| 1. Plan | [B2B Campaign Assistant](https://github.com/rachelhong-marketing/b2b-campaign-assistant) | Brainstorm the campaign theme, write the campaign plan and master brief, then draft channel briefs, keywords, landing page and ad copy, all checked before launch. |
-| 2. Set up | [B2B Paid Media Planner](https://github.com/rachelhong-marketing/b2b-paid-media-planner) | Plan channels and retargeting, then build and check tracking links before launch. |
-| 3. Test | [B2B Campaign Test Planner](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) | Plan tests in waves, let the ad platform call the winner, check MQLs, and size tests when volume is small. |
-| 4. Report | **B2B Campaign Reporting Agent** (this repo) | Consolidate ad platform and CRM data into one file, check every channel and funnel stage for gaps, and draft insights. |
-| 5. Prove | [B2B Pipeline Attribution Tool](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool) | Check the CRM data can be trusted, then show sourced and influenced pipeline. |
+| 1. Position | [B2B Product Marketing Agent](https://github.com/rachelhong-marketing/b2b-product-marketing-agent) | Define who you sell to and what you say: ideal customer profile, positioning, messaging pillars and proof points, checked for gaps before any campaign starts. |
+| 2. Plan | [B2B Campaign Assistant](https://github.com/rachelhong-marketing/b2b-campaign-assistant) | Turn the positioning into a campaign theme, write the campaign plan and master brief, then draft channel briefs, keywords, landing page and ad copy, all checked before launch. |
+| 3. Content | [B2B Content Strategy Assistant](https://github.com/rachelhong-marketing/b2b-content-strategy-assistant) | Pick content topics inside the campaign theme from audience questions, news, competitors and keyword data, outline and check each piece so search and AI answer tools can quote it, and log whether AI answers cite you. |
+| 4. Set up | [B2B Paid Media Planner](https://github.com/rachelhong-marketing/b2b-paid-media-planner) | Plan channels and retargeting, then build and check tracking links before launch. |
+| 5. Test | [B2B Campaign Test Planner](https://github.com/rachelhong-marketing/b2b-campaign-test-planner) | Plan tests in waves, let the ad platform call the winner, check MQLs, and size tests when volume is small. |
+| 6. Report | **B2B Campaign Reporting Agent** (this repo) | Consolidate ad platform and CRM data into one file, check every channel and funnel stage for gaps, and draft insights. |
+| 7. Prove | [B2B Pipeline Attribution Tool](https://github.com/rachelhong-marketing/b2b-pipeline-attribution-tool) | Check the CRM data can be trusted, then show sourced and influenced pipeline. |
 
 ## About the author
 
