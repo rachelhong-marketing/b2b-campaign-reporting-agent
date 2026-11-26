@@ -12,6 +12,32 @@ It runs as a Claude Code skill, with Python doing every sum, join and check. The
 
 All data here is made up.
 
+## What you give it, and what you get back
+
+### What you give it
+
+Put these exports in one folder for the period. [docs/exports.md](docs/exports.md) shows which columns each needs.
+
+| You provide | Where it comes from |
+|---|---|
+| Google Ads export | Campaigns report, by day or week |
+| LinkedIn export | Campaign Manager performance export |
+| Meta export | Ads Manager campaigns, by day |
+| Display export | Your display partner's report |
+| CRM leads | Salesforce or HubSpot lead report with UTMs and the dates each lead became MQL, SAL and SQL |
+| Mapping files | Which UTM source and medium means which channel, and which campaign names are the same asset ([`mapping/`](mapping/)) |
+| Trusted CRM totals (optional) | Totals to compare the report against |
+
+### What you get back
+
+| Output | What it looks like | Example |
+|---|---|---|
+| One source table | One row per month, channel and asset: spend, clicks, leads, MQLs, SALs, SQLs | [source_table.csv](examples/2-after-mapping-fix/source_table.csv) |
+| Views | Totals by channel, by asset and by month, all added up from the source table | [by_channel.csv](examples/2-after-mapping-fix/by_channel.csv) |
+| QA report | Every data gap and tracking problem found, before anyone reads the numbers | [first run](examples/1-first-run/report.md) |
+| Fixed report | The same report after you approve a mapping fix | [after the fix](examples/2-after-mapping-fix/report.md) |
+| Leadership insights | Headline, what's working, what we're fixing and who owns it, what we'll change next | [Insights](examples/3-leadership-insights.md) |
+
 ## Why QA comes first
 
 On the sample data, the first run shows Meta with **$8,585 in spend and zero leads**. A quick read says "cut Meta." The QA check says something else: 126 leads came in tagged `facebook / paid-social`, which isn't in the channel map. Once that's mapped, Meta has the **lowest cost per MQL of any channel ($277)**.
